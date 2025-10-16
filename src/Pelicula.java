@@ -32,7 +32,8 @@ public class Pelicula {
         return Estreno;
     }
     public void setEstreno(int estreno) {
-        Estreno = estreno;
+        if (estreno < 0) System.out.println("El año de estreno no puede ser negativo.");
+        else Estreno = estreno;
     }
 
     public String getGenero() {
@@ -46,6 +47,8 @@ public class Pelicula {
         return Valoracion;
     }
     public void setValoracion(int valoracion) {
-        Valoracion = valoracion;
+        if (valoracion <= 5 && valoracion > 0) Valoracion = valoracion;
+        else System.out.println("La valoracion debe ser del 1 al 5.");
+
     }
 }
