@@ -1,20 +1,3 @@
-class Pelicula {
-    String Titulo;
-    String Director;
-    int Estreno;
-    String Genero;
-    int Valoracion;
-
-    public Pelicula(String titulo, String director, int estreno, String genero, int valoracion) {
-        Titulo = titulo;
-        Director = director;
-        Estreno = estreno;
-        Genero = genero;
-        Valoracion = valoracion;
-
-    }
-}
-
 public class Main {
     static void main() {
 
