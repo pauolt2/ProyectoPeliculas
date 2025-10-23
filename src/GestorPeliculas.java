@@ -5,6 +5,10 @@ public class GestorPeliculas {
     static List<Pelicula> catalogo = new ArrayList<>();
     private static final String ARCHIVO = "datos/peliculas.csv";
 
+    public static boolean añadirPelicula(Pelicula pelicula){
+        return catalogo.add(pelicula);
+    }
+
     public static void verCatalogo() {
         if (catalogo.isEmpty()) {
             System.out.println("El catálogo está vacío.");
