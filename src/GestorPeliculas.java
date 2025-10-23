@@ -1,13 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public  class GestorPeliculas {
-    static List<pelicula> peliculas = new ArrayList<>();
-
-    public record pelicula(String titulo, String director, String genero, int duracion){
-
-    }
-
+public class GestorPeliculas {
+    private List<Pelicula> catalogo = new ArrayList<>();
+    private static final String ARCHIVO = "datos/peliculas.csv";
+  
+  
     static void filtrarPeliculasGenero(String g){
         for (pelicula pelito : peliculas) {
 
@@ -25,15 +23,6 @@ public  class GestorPeliculas {
                 System.out.println(pelito);
             }
         }
-    }
-
-
-
-    static void main() {
-        pelicula peli = new pelicula("Pasta","Jaume","Horror",120);
-        peliculas.add(peli);
-        filtrarPeliculasGenero("Horror");
-        filtrarPeliculasDirector("Jaume");
     }
 }
 
