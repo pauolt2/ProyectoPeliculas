@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GestorPeliculas {
-    private static List<Pelicula> catalogo = new ArrayList<>();
+    static List<Pelicula> catalogo = new ArrayList<>();
     private static final String ARCHIVO = "datos/peliculas.csv";
 
     public static void verCatalogo() {
@@ -22,5 +22,20 @@ public class GestorPeliculas {
         }
     }
 
+    public static void filtrarPeliculasGenero(String g){
+        for (Pelicula pelito : catalogo) {
+            if (pelito.getGenero().toLowerCase().contains(g.toLowerCase())) {
+                System.out.println(pelito);
+            }
+        }
+    }
+
+    public static void filtrarPeliculasDirector(String d){
+        for (Pelicula pelito : catalogo) {
+            if (pelito.getDirector().toLowerCase().contains(d.toLowerCase())) {
+                System.out.println(pelito);
+            }
+        }
+    }
 
 }
