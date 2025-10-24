@@ -19,14 +19,14 @@ public class GestorPeliculas {
             );
             lineas.add(linea);
         }
-//
+
         try {
             Path ruta = Paths.get(ARCHIVO);
             Files.createDirectories(ruta.getParent());
             Files.write(ruta, lineas);
             System.out.println(" Catálogo guardado correctamente en " + ARCHIVO);
         } catch (IOException e) {
-            System.out.println("⚠ Error al guardar el catálogo: " + e.getMessage());
+            System.out.println(" Error al guardar el catálogo: " + e.getMessage());
         }
     }
 
@@ -55,7 +55,7 @@ public class GestorPeliculas {
             }
             System.out.println(" Catálogo cargado correctamente (" + catalogo.size() + " películas)");
         } catch (IOException e) {
-            System.out.println("⚠ Error al cargar el catálogo: " + e.getMessage());
+            System.out.println(" Error al cargar el catálogo: " + e.getMessage());
         }
     }
 }
