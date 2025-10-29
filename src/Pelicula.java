@@ -14,6 +14,7 @@ public class Pelicula {
 
     }
 
+
     public String getTitulo() {
         return Titulo;
     }
