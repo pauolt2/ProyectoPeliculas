@@ -1,54 +1,70 @@
 public class Pelicula {
-    String Titulo;
-    String Director;
-    int Estreno;
-    String Genero;
-    int Valoracion;
+    private String titulo;
+    private String director;
+    private int estreno;
+    private String genero;
+    private int valoracion;
 
     public Pelicula(String titulo, String director, int estreno, String genero, int valoracion) {
-        Titulo = titulo;
-        Director = director;
-        Estreno = estreno;
-        Genero = genero;
-        Valoracion = valoracion;
-
+        this.titulo = titulo;
+        this.director = director;
+        this.estreno = Math.max(estreno, 0); // evita años negativos
+        this.genero = genero;
+        if (valoracion >= 1 && valoracion <= 5) {
+            this.valoracion = valoracion;
+        } else {
+            System.out.println("La valoración debe ser del 1 al 5. Se establecerá en 1 por defecto.");
+            this.valoracion = 1;
+        }
     }
 
     public String getTitulo() {
-        return Titulo;
+        return titulo;
     }
     public void setTitulo(String titulo) {
-        Titulo = titulo;
+        this.titulo = titulo;
     }
 
     public String getDirector() {
-        return Director;
+        return director;
     }
     public void setDirector(String director) {
-        Director = director;
+        this.director = director;
     }
 
     public int getEstreno() {
-        return Estreno;
+        return estreno;
     }
     public void setEstreno(int estreno) {
-        if (estreno < 0) System.out.println("El año de estreno no puede ser negativo.");
-        else Estreno = estreno;
+        if (estreno < 0)
+            System.out.println("El año de estreno no puede ser negativo.");
+        else
+            this.estreno = estreno;
     }
 
     public String getGenero() {
-        return Genero;
+        return genero;
     }
     public void setGenero(String genero) {
-        Genero = genero;
+        this.genero = genero;
     }
 
     public int getValoracion() {
-        return Valoracion;
+        return valoracion;
     }
     public void setValoracion(int valoracion) {
-        if (valoracion <= 5 && valoracion > 0) Valoracion = valoracion;
-        else System.out.println("La valoracion debe ser del 1 al 5.");
+        if (valoracion >= 1 && valoracion <= 5)
+            this.valoracion = valoracion;
+        else
+            System.out.println("La valoración debe ser del 1 al 5.");
+    }
 
+    @Override
+    public String toString() {
+        return "Título: " + titulo +
+                "\nDirector: " + director +
+                "\nAño: " + estreno +
+                "\nGénero: " + genero +
+                "\nValoración: " + valoracion + "/5";
     }
 }
