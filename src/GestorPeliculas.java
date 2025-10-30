@@ -29,23 +29,58 @@ public class GestorPeliculas {
     public static boolean añadirPelicula(Pelicula pelicula) {
         return catalogo.add(pelicula);
     }
-  
-    public static void modificarPeli(String d){
-          Scanner sc = new Scanner(System.in);
-          for (Pelicula superpeli : peliculas){
 
-              if (superpeli.titulo.toLowerCase().contains(d.toLowerCase())){
-                  int eleccion = 0;
-                  System.out.println("¿Que quieres editar?");
-                  System.out.println("1. Titulo 2. Director 3. Genero 4. Duracion");
-                  switch (eleccion){
+    public static void modificarPeli(String tituloBuscado) {
+        Scanner sc = new Scanner(System.in);
+        boolean encontrado = false;
 
-                      case 1: superpeli.titulo = sc.nextLine();
-                      case 2: superpeli.director = sc.nextLine();
-                      case 3: superpeli.genero = sc.nextLine();
-                      case 4: superpeli.duracion = sc.nextInt();
-                      }
-                  }
+        for (Pelicula p : catalogo) {
+            if (p.getTitulo().equalsIgnoreCase(tituloBuscado)) {
+                encontrado = true;
+                System.out.println("¿Qué quieres editar?");
+                System.out.println("1. Título");
+                System.out.println("2. Director");
+                System.out.println("3. Género");
+                System.out.println("4. Año de estreno");
+                System.out.println("5. Valoración");
+                System.out.print("Elige una opción: ");
+
+                int eleccion = sc.nextInt();
+                sc.nextLine();
+
+                switch (eleccion) {
+                    case 1:
+                        System.out.print("Nuevo título: ");
+                        p.setTitulo(sc.nextLine());
+                        break;
+                    case 2:
+                        System.out.print("Nuevo director: ");
+                        p.setDirector(sc.nextLine());
+                        break;
+                    case 3:
+                        System.out.print("Nuevo género: ");
+                        p.setGenero(sc.nextLine());
+                        break;
+                    case 4:
+                        System.out.print("Nuevo año de estreno: ");
+                        p.setEstreno(sc.nextInt());
+                        break;
+                    case 5:
+                        System.out.print("Nueva valoración (1-5): ");
+                        p.setValoracion(sc.nextInt());
+                        break;
+                    default:
+                        System.out.println("Opción no válida.");
+                }
+                System.out.println("Película modificada correctamente.");
+                break;
+            }
+        }
+
+        if (!encontrado) {
+            System.out.println("No se encontró ninguna película con ese título.");
+        }
+    }
 
     public static void verCatalogo() {
         if (catalogo.isEmpty()) {
