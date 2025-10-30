@@ -22,6 +22,7 @@ public  class GestorPeliculas {
                     case 3: pelito.genero = sc.nextLine();
                     case 4: pelito.duracion = sc.nextInt();
 
+                    
                     }
                 }
             }
