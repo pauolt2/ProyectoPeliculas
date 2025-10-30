@@ -1,6 +1,5 @@
 import java.io.IOException;
 import java.nio.file.*;
-import javax.xml.catalog.Catalog;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +7,7 @@ public class GestorPeliculas {
     static List<Pelicula> catalogo = new ArrayList<>();
     private static final String ARCHIVO = "datos/peliculas.csv";
 
-   public static void buscarPorTitulo(String tituloBuscado) {
+    public static void buscarPorTitulo(String tituloBuscado) {
         boolean encontrado = false;
         for (Pelicula p : catalogo) {
             if (p.getTitulo().toLowerCase().contains(tituloBuscado.toLowerCase())) {
@@ -21,13 +20,12 @@ public class GestorPeliculas {
                 encontrado = true;
             }
         }
-
         if (!encontrado) {
             System.out.println("No se encontraron películas con ese título.");
         }
     }
-  
-    public static boolean añadirPelicula(Pelicula pelicula){
+
+    public static boolean añadirPelicula(Pelicula pelicula) {
         return catalogo.add(pelicula);
     }
 
@@ -43,22 +41,33 @@ public class GestorPeliculas {
                 System.out.println("Año: " + p.getEstreno());
                 System.out.println("Género: " + p.getGenero());
                 System.out.println("Valoración: " + p.getValoracion() + "/5");
+            }
+        }
+    }
+
+    public static void verMejorValoradas() {
+        if (catalogo.isEmpty()) {
+            System.out.println("El catálogo está vacío.");
+            return;
+        }
+        catalogo.sort((a, b) -> Integer.compare(b.getValoracion(), a.getValoracion()));
+
+        System.out.println("Películas mejor valoradas:");
+        for (Pelicula p : catalogo) {
+            System.out.println("Título: " + p.getTitulo() + " | Valoración: " + p.getValoracion() + "/5");
+        }
+    }
+
+    public static void filtrarPeliculasGenero(String generoBuscado) {
+        boolean encontrado = false;
+        for (Pelicula pelicula : catalogo) {
+            if (pelicula.getGenero().toLowerCase().contains(generoBuscado.toLowerCase())) {
+                System.out.println(pelicula);
                 encontrado = true;
             }
         }
-    
-    public static void verMejorValoradas(){
-        catalogo.sort((a, b) -> Integer.compare(b.Valoracion, a.Valoracion));
-
-        catalogo.forEach(p -> System.out.println("Titulo: " + p.Titulo + " Valoración: " + p.Valoracion));
-    }
-
-    public static void filtrarPeliculasGenero(String g){
-        for (Pelicula pelito : catalogo) {
-            if (pelito.getGenero().toLowerCase().contains(g.toLowerCase())) {
-                System.out.println(pelito);
-            }
-
+        if (!encontrado) {
+            System.out.println("No se encontraron películas del género especificado.");
         }
     }
 
@@ -72,7 +81,7 @@ public class GestorPeliculas {
             System.out.println("No se encontró ninguna película con ese título.");
         return eliminado;
     }
-      
+
     public static void guardarCatalogo() {
         List<String> lineas = new ArrayList<>();
         for (Pelicula p : catalogo) {
@@ -90,7 +99,7 @@ public class GestorPeliculas {
             Path ruta = Paths.get(ARCHIVO);
             Files.createDirectories(ruta.getParent());
             Files.write(ruta, lineas);
-            System.out.println("Catálogo guardado correctamente en " + ARCHIVO);
+            System.out.println("Catálogo guardado correctamente en " + ARCHIVO + ".");
         } catch (IOException e) {
             System.out.println("Error al guardar el catálogo: " + e.getMessage());
         }
@@ -99,7 +108,7 @@ public class GestorPeliculas {
     public static void cargarCatalogo() {
         Path ruta = Paths.get(ARCHIVO);
         if (!Files.exists(ruta)) {
-            System.out.println("No se encontró el archivo de datos, se creará uno nuevo.");
+            System.out.println("No se encontró el archivo de datos. Se creará uno nuevo.");
             return;
         }
 
@@ -119,11 +128,9 @@ public class GestorPeliculas {
                     catalogo.add(new Pelicula(titulo, director, estreno, genero, valoracion));
                 }
             }
-            System.out.println(" Catalogo cargado correctamente (" + catalogo.size() + " películas)");
+            System.out.println("Catálogo cargado correctamente (" + catalogo.size() + " películas).");
         } catch (IOException e) {
-            System.out.println(" Error al cargar el catálogo: " + e.getMessage());
+            System.out.println("Error al cargar el catálogo: " + e.getMessage());
         }
-
     }
-
 }
