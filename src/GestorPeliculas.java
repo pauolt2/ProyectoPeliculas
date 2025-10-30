@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class GestorPeliculas {
     static List<Pelicula> catalogo = new ArrayList<>();
@@ -28,6 +29,23 @@ public class GestorPeliculas {
     public static boolean añadirPelicula(Pelicula pelicula) {
         return catalogo.add(pelicula);
     }
+  
+    public static void modificarPeli(String d){
+          Scanner sc = new Scanner(System.in);
+          for (Pelicula superpeli : peliculas){
+
+              if (superpeli.titulo.toLowerCase().contains(d.toLowerCase())){
+                  int eleccion = 0;
+                  System.out.println("¿Que quieres editar?");
+                  System.out.println("1. Titulo 2. Director 3. Genero 4. Duracion");
+                  switch (eleccion){
+
+                      case 1: superpeli.titulo = sc.nextLine();
+                      case 2: superpeli.director = sc.nextLine();
+                      case 3: superpeli.genero = sc.nextLine();
+                      case 4: superpeli.duracion = sc.nextInt();
+                      }
+                  }
 
     public static void verCatalogo() {
         if (catalogo.isEmpty()) {
