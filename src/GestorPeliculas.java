@@ -26,8 +26,27 @@ public class GestorPeliculas {
         }
     }
 
-    public static boolean añadirPelicula(Pelicula pelicula) {
-        return catalogo.add(pelicula);
+    public static boolean añadirPelicula() {
+        Scanner scanner = new Scanner(System.in);
+        String titulo;
+        String director;
+        int estreno;
+        String genero;
+        int valoracion;
+        System.out.println("Introduce los datos de la pelicula: ");
+        System.out.print("Titulo: ");
+        titulo = scanner.nextLine();
+        System.out.print("Director: ");
+        director = scanner.nextLine();
+        System.out.print("Estreno: ");
+        estreno = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Genero: ");
+        genero = scanner.nextLine();
+        System.out.print("Valoracion: ");
+        valoracion = scanner.nextInt();
+        scanner.nextLine();
+        return catalogo.add(new Pelicula(titulo, director, estreno, genero, valoracion));
     }
 
     public static void modificarPeli(String tituloBuscado) {
@@ -96,6 +115,7 @@ public class GestorPeliculas {
                 System.out.println("Valoración: " + p.getValoracion() + "/5");
             }
         }
+
     }
 
     public static void verMejorValoradas() {
@@ -112,15 +132,40 @@ public class GestorPeliculas {
     }
 
     public static void filtrarPeliculasGenero(String generoBuscado) {
+        System.out.println();
         boolean encontrado = false;
         for (Pelicula pelicula : catalogo) {
             if (pelicula.getGenero().toLowerCase().contains(generoBuscado.toLowerCase())) {
-                System.out.println(pelicula);
+                System.out.println("----------------------------------");
+                System.out.println("Título: " + pelicula.getTitulo());
+                System.out.println("Director: " + pelicula.getDirector());
+                System.out.println("Año: " + pelicula.getEstreno());
+                System.out.println("Género: " + pelicula.getGenero());
+                System.out.println("Valoración: " + pelicula.getValoracion() + "/5");
                 encontrado = true;
             }
         }
         if (!encontrado) {
             System.out.println("No se encontraron películas del género especificado.");
+        }
+    }
+
+    public static void filtrarPeliculasDirector(String directorBuscado) {
+        boolean encontrado = false;
+        for (Pelicula pelicula : catalogo) {
+            if (pelicula.getDirector().toLowerCase().contains(directorBuscado.toLowerCase())) {
+                System.out.println("----------------------------------");
+                System.out.println("Título: " + pelicula.getTitulo());
+                System.out.println("Director: " + pelicula.getDirector());
+                System.out.println("Año: " + pelicula.getEstreno());
+                System.out.println("Género: " + pelicula.getGenero());
+                System.out.println("Valoración: " + pelicula.getValoracion() + "/5");
+                encontrado = true;
+            }
+        }
+
+        if (!encontrado) {
+            System.out.println("No se encontraron películas dirigidas por \"" + directorBuscado + "\".");
         }
     }
 
