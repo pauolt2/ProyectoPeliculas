@@ -138,9 +138,11 @@ Película añadida correctamente
 *(Incluir capturas reales del funcionamiento del programa)*  
 Ejemplos:
 - Menú principal
-  !(captura1.jpeg)
-- Resultado de búsqueda por título  
+![Menú principal](captura1.jpeg)
+- Resultado de búsqueda por título
+ ![Resultado de búsqueda](captura2.jpeg)
 - Películas mejor valoradas  
+![Películas mejor valoradas](captura3.jpeg)
 
 ---
 
