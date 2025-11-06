@@ -137,7 +137,8 @@ Película añadida correctamente
 ###  Capturas de la terminal
 *(Incluir capturas reales del funcionamiento del programa)*  
 Ejemplos:
-- Menú principal  
+- Menú principal
+  !(captura1.jpeg)
 - Resultado de búsqueda por título  
 - Películas mejor valoradas  
 
