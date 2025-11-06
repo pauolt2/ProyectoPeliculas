@@ -136,11 +136,14 @@ Película añadida correctamente
 
 ### 📸 Capturas de la terminal
 
-- **Menú principal**  
+- **Menú principal**
+  
   ![Menú principal](captura1.jpeg)
 
-- **Resultado de búsqueda por título**  
+- **Resultado de búsqueda por título**
+  
   ![Resultado de búsqueda](captura2.jpeg)
 
-- **Películas mejor valoradas**  
+- **Películas mejor valoradas**
+  
   ![Películas mejor valoradas](captura3.jpeg)
