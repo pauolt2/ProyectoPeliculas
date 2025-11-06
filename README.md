@@ -144,11 +144,3 @@ Película añadida correctamente
 
 - **Películas mejor valoradas**  
   ![Películas mejor valoradas](captura3.jpeg)
-
-
----
-
-###  Tecnologías utilizadas
-- **Java 17+**
-- **Git y GitHub**
-- **IntelliJ IDEA**
