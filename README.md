@@ -152,9 +152,3 @@ Película añadida correctamente
 - **Java 17+**
 - **Git y GitHub**
 - **IntelliJ IDEA**
-
----
-
-###  Conclusión
-El proyecto cumple con todos los requisitos planteados: manejo de archivos, uso de listas, interacción por consola, trabajo colaborativo con GitHub, y documentación técnica en este archivo `README.md`.  
-Cada integrante participó activamente en el desarrollo de su módulo correspondiente.
