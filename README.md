@@ -151,7 +151,7 @@ Película añadida correctamente
 ###  Tecnologías utilizadas
 - **Java 17+**
 - **Git y GitHub**
-- **Visual Studio Code / IntelliJ IDEA**
+- **IntelliJ IDEA**
 
 ---
 
